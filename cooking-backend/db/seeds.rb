@@ -8,8 +8,10 @@
 response = Excon.get "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=40&offset=0&type=main+course&query=dinner",
     headers:{
         "X-RapidAPI-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "X-RapidAPI-Key" => ENV['API_KEY']
-    }
+        "X-RapidAPI-Key" => ENV
+}
+
+
 
     
     json = JSON.parse(response.body)['results']
