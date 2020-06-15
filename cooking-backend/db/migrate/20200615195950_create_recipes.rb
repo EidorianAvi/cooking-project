@@ -3,7 +3,6 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
     create_table :recipes do |t|
       t.string :title
       t.integer :ready_in_minutes
-      t.integer :servings
       t.string :recipe_url
       t.string :image
 
