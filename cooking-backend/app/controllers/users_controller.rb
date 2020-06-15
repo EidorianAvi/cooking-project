@@ -12,6 +12,6 @@ class UsersController < ApplicationController
             name: params[:name],
             age: params[:age]
         )
-        redirect_to "http://localhost:3001/show.html"
+        redirect_to "http://localhost:3001/user_select.html"
     end
 end

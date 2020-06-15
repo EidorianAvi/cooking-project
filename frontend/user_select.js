@@ -1,3 +1,14 @@
+const searchParams = new URLSearchParams(window.location.search)
+const userId = searchParams.get('id')
+
+const userSelectForm = document.querySelector('#user-select-form')
+userSelectForm.addEventListener('submit')
+
+if (userId){
+
+}
+
+
 fetch("http://localhost:3000/users")
     .then(response => response.json())
     .then(userSelection)
