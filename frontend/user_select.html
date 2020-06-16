@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="user_select.css">
     <title>User Selection</title>
     <script src="user_select.js" defer></script>
 </head>
 <body>
-    <main>
-        <form action='http://localhost:3001/favorites.html' id="user-select-form">
-            <select name="id" id="user-selection">
-                <option value="">Select User</option>
-            </select>
-            <input type="submit">
-        </form>
-        <form action="http://localhost:3000/users" method="POST">
-            <label>Name:</label>
-            <input type="text" name="name"><br>
-            <label>Age:</label>
-            <input type="text" name="age"><br>
-            <input type="submit">
-        </form>
+    <main id="hero">
+        <div id="select-box">
+            <form action='http://localhost:3001/favorites.html' id="user-select-form">
+                <p>Choose User:</p><br>
+                <select name="id" id="user-selection">
+                    <option value="">Select User</option>
+                </select>
+                <br>
+                <input type="submit" value="Sign In">
+            </form>
+            <p id="or">-OR-</p> 
+            <p>Create User:</p>
+            <form action="http://localhost:3000/users" method="POST">
+                <input type="text" name="name" placeholder="Name"><br>
+                <input type="text" name="age" placeholder="Age"><br>
+                <input type="submit" value="Create User">
+            </form>
+        </div>
     </main>
     
 </body>
