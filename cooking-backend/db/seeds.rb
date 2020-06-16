@@ -5,6 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+UserRecipe.destroy_all
+Recipe.destroy_all
+User.destroy_all
+
+
 response = Excon.get "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=40&offset=0&type=main+course&query=dinner",
     headers:{
         "X-RapidAPI-Host" => "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",

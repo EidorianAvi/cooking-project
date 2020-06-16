@@ -48,13 +48,13 @@ table {
 
 /* PERSONAL STYLING STARTS HERE */
 
-#recipe-list {
+#favorites-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-#recipe-list li {
+#favorites-list li {
     display: flex;
     flex-direction: column;
     width: 250px;
@@ -64,9 +64,9 @@ table {
     align-items: center;
     text-align: center;
     justify-content: space-between;
- }
- 
-#recipe-list li img {
+}
+
+#favorites-list li img {
     width: 200px;
     margin: 0.75rem;
 }

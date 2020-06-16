@@ -28,15 +28,23 @@ function renderRecipes(recipes){
     recipes.forEach(recipe => {
         let li = document.createElement('li')
         li.innerHTML=
-            `<p>${recipe.title}</p>
-            <p>Time to prepare: ${recipe.ready_in_minutes} minutes</p>
-            <img src="./images/food_id1.jpg"><br>
-            <a href=${recipe.recipe_url} target="_blank">See Recipe</a>
-            <form action="http://localhost:3000/user_recipes" method="POST">
-                <input type="hidden" name="user_id" value=${user_id}>
-                <input type="hidden" name="recipe_id" value=${recipe.id}>
-                <input type="submit" value="Add to Favorites">
-            </form>
+            `<div class="scene">
+             <div class="card">
+                <div class="card__face card__face--front">
+                    ${recipe.title}<br> 
+                    <img src="./images/food_id1.jpg"><br>
+                </div>
+                <div class="card__face card__face--back">
+                    <p>Time to prepare: ${recipe.ready_in_minutes} minutes</p>
+                    <a href=${recipe.recipe_url} target="_blank">See Recipe</a>
+                    <form action="http://localhost:3000/user_recipes" method="POST">
+                        <input type="hidden" name="user_id" value=${user_id}>
+                        <input type="hidden" name="recipe_id" value=${recipe.id}>
+                        <input type="submit" value="Add to Favorites">
+                    </form>
+                </div>
+             </div>
+             </div>
             `
         recipeList.append(li)
     })
