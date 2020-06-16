@@ -2,9 +2,9 @@ const recipeList = document.querySelector('#recipe-list')
 
 fetch("http://localhost:3000/recipes")
     .then(response => response.json())
-    .then(console.log)
+    .then(renderRecipes)
 
-function renderRecipe(recipes){
+function renderRecipes(recipes){
     recipes.forEach(recipe => {
         let li = document.createElement('li')
         li.textContent=recipe.title
