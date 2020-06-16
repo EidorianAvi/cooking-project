@@ -11,7 +11,17 @@
         <h1>Your Favorite Recipes</h1>
     </header>
     <main>
+        <ul id="favorites-list">
 
+        </ul>
+        <form action='http://localhost:3000/user_recipes' method="POST" id="add-favorites-form">
+            <select name="recipe_id" id="recipe-selection">
+                <option value="">Select Recipe to Add</option>
+            </select>
+            <input type="hidden" id="assign-user-id">
+            <input type="submit">
+        </form>
+        <a href="show.html">View More Recipes</a>
     </main>
     
 </body>
