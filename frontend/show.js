@@ -1,12 +1,27 @@
 const searchParams = new URLSearchParams(window.location.search)
 const user_id = searchParams.get('user_id')
-console.log(user_id)
+const titleSearch = searchParams.get('title')
+const timeSearch = searchParams.get('ready_in_minutes')
+
+const baseUrl = "http://localhost:3000/"
+let recipeUrl = `${baseUrl}/recipes`
+
+if (titleSearch) {
+    recipeUrl = `${recipeUrl}?title=${titleSearch}`
+} else if (timeSearch) {
+    recipeUrl = `${recipeUrl}?ready_in_minutes=${timeSearch}`
+}
 
 const recipeList = document.querySelector('#recipe-list')
 
-fetch("http://localhost:3000/recipes")
+fetch(recipeUrl)
     .then(response => response.json())
-    .then(renderRecipes)
+    .then(renderPage)
+
+function renderPage(recipes){
+    renderRecipes(recipes)
+    editSearchForm()
+}
 
 function renderRecipes(recipes){
     recipes.forEach(recipe => {
@@ -24,5 +39,16 @@ function renderRecipes(recipes){
             `
         recipeList.append(li)
     })
+}
+
+const searchBar = document.querySelector('#search-bar')
+
+function editSearchForm(){
+    searchBar.innerHTML = `
+        <label>Search Recipes:</label>
+        <input type="text" name="title" placeholder="Name of Recipe">
+        <input type="hidden" name="user_id" value=${user_id}>
+        <input type="submit" value="Search">
+        `
 }
 

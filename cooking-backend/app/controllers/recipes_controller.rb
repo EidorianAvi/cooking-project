@@ -1,6 +1,18 @@
 class RecipesController < ApplicationController
     def index
-        @recipes = Recipe.all
+        if params[:title]
+            @recipes = Recipe.where("title LIKE ?", "%#{params[:title]}%")
+        elsif params[:ready_in_minutes]
+            if params[:ready_in_minutes] == "under_30"
+                @recipes = Recipe.where("ready_in_minutes <= 30")
+            elsif params[:ready_in_minutes] == "30_60"
+                @recipes = Recipe.where("ready_in_minutes > 30 and ready_in_minutes <= 60")
+            elsif params[:ready_in_minutes] == "over_60"
+                @recipes = Recipe.where("ready_in_minutes > 60")
+            end
+        else
+            @recipes = Recipe.all
+        end
         render json: @recipes, include: [:users]
     end
     def show
