@@ -21,6 +21,7 @@ fetch(recipeUrl)
 function renderPage(recipes){
     renderRecipes(recipes)
     editSearchForm()
+    editTimeSearch()
 }
 
 function renderRecipes(recipes){
@@ -52,3 +53,12 @@ function editSearchForm(){
         `
 }
 
+const timeSearchBar = document.querySelector('#select-time-bar')
+
+function editTimeSearch(){
+    const hiddenInput = document.createElement('input')
+    hiddenInput.type="hidden"
+    hiddenInput.name="user_id"
+    hiddenInput.value=user_id
+    timeSearchBar.appendChild(hiddenInput)
+}
