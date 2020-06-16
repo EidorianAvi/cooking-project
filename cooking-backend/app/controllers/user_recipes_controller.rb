@@ -6,4 +6,16 @@ class UserRecipesController < ApplicationController
         )
         redirect_back fallback_location: "http://localhost:3001/favorites.html"
     end
+
+    def destroy
+        @user_recipe = UserRecipe.find params[:id]
+        @user_recipe.destroy
+        redirect_back fallback_location: "http://localhost:3001/user.html"
+    end
+
+    def index
+        @user_recipes = UserRecipe.all
+        render json: @user_recipes, include: [:user, :recipe]
+    end
+
 end
