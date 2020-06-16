@@ -2,25 +2,20 @@ const searchParams = new URLSearchParams(window.location.search)
 const user_id = searchParams.get('id')
 
 
-// fetch(`http://localhost:3000/users/${user_id}`)
-//     .then(response => response.json())
-//     .then(renderFavoriteRecipes)
-
-
-
-
 fetch("http://localhost:3000/user_recipes")
     .then(response => response.json())
-    .then(renderFavoriteRecipes)
+    .then(handleData)
 
+function handleData(UserRecipes){
+    renderFavoriteRecipes(UserRecipes)
+    linkToShowPage()
+}
 
 const favoritesList = document.querySelector('#favorites-list')
 
 function renderFavoriteRecipes(UserRecipes) {
-    console.log(UserRecipes)
     UserRecipes.forEach(UserRecipe => {
         if (UserRecipe.user.id == user_id){
-            console.log(UserRecipe.recipe)
             let li = document.createElement('li')
             li.innerHTML = `<form action="http://localhost:3000/user_recipes/${UserRecipe.id}"  method="POST">
             ${UserRecipe.recipe.title}
@@ -29,6 +24,15 @@ function renderFavoriteRecipes(UserRecipes) {
             </form>`
             favoritesList.append(li)
     }})
+}
+
+const main = document.querySelector('main')
+
+function linkToShowPage() {
+    const link = document.createElement('a')
+    link.textContent = "View More Recipes"
+    link.href = `show.html?user_id=${user_id}`
+    main.append(link)
 }
 
 
