@@ -10,6 +10,8 @@ class RecipesController < ApplicationController
             elsif params[:ready_in_minutes] == "over_60"
                 @recipes = Recipe.where("ready_in_minutes > 60")
             end
+        elsif params[:user_id]
+            @recipes = Recipe.except_favorites params[:user_id]
         else
             @recipes = Recipe.all
         end

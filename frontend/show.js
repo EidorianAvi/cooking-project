@@ -10,6 +10,8 @@ if (titleSearch) {
     recipeUrl = `${recipeUrl}?title=${titleSearch}`
 } else if (timeSearch) {
     recipeUrl = `${recipeUrl}?ready_in_minutes=${timeSearch}`
+} else if (user_id) {
+    recipeUrl = `${recipeUrl}?user_id=${user_id}`
 }
 
 const recipeList = document.querySelector('#recipe-list')
@@ -22,6 +24,7 @@ function renderPage(recipes){
     renderRecipes(recipes)
     editSearchForm()
     editTimeSearch()
+    backToFavorite()
 }
 
 function renderRecipes(recipes){
@@ -69,4 +72,9 @@ function editTimeSearch(){
     hiddenInput.name="user_id"
     hiddenInput.value=user_id
     timeSearchBar.appendChild(hiddenInput)
+}
+
+function backToFavorite(){
+    const linkFavorite = document.querySelector('#favorite-link')
+    linkFavorite.href = `http://localhost:3001/favorites.html?id=${user_id}`
 }

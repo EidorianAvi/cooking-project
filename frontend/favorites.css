@@ -48,38 +48,89 @@ table {
 
 /* PERSONAL STYLING STARTS HERE */
 
+header {
+  position: absolute;
+  width: 100%;
+  height: 15vh;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(to top, hsl(130, 30%, 35%), hsl(130, 30%, 25%));
+  opacity: .7;
+  box-shadow: 0px 4px 10px hsl(130, 30%, 10%);
+}
+
+h1 {
+ color: rgba(245,245,230);
+ font-family: 'KoHo', sans-serif;
+ font-size: 34px;
+ font-weight: 700;
+}
+
+footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 10vh;
+  background: linear-gradient(to top, hsl(130, 30%, 25%), hsl(130, 30%, 35%));
+  opacity: .7;
+  box-shadow: 0px -4px 10px hsl(130, 30%, 10%);
+}
+
+#recipe-link {
+     color: rgba(245,245,230);
+     text-decoration: underline;
+     font-size: 24px;
+     font-weight: 700;
+     font-family: 'KoHo', sans-serif;
+}
+
 body {
+  padding-top: 10%;
   background: url('./images/carrots-food-fresh-freshness-616404.jpg');
   background-size: 100%;
+  height: 100vh;
+  background-size: 100% 100%;
+  background-blend-mode: saturation;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;;
 }
 
 #favorites-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 80vh;
+    width: 80%;
+    margin: 5% 10% 10% 10%;
 }
 
 #favorites-list li {
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid black;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
+  margin: 1rem;
+  text-align: center;
+}
+
+#favorites-list li p {
+  padding: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #favorites-list li img {
-    width: 200px;
-    margin: 0.75rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 15px 15px;
 }
 
 .scene {
-  width: 200px;
-  height: 260px;
+  width: 250px;
+  height: 300px;
   perspective: 600px;
 }
 
@@ -89,6 +140,7 @@ body {
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+  border-radius: 5%;
 }
 
 .card__face {
@@ -96,17 +148,79 @@ body {
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px hsl(130, 30%, 10%);
 }
 
 .card__face--front {
-  background: red;
+  background: linear-gradient(to bottom, hsl(130, 30%, 35%), hsl(130, 30%, 25%));
+  opacity: 0.8;
+  display: grid;
+  grid-template-rows: 20% 80%;
 }
 
 .card__face--back {
-  background: blue;
-  transform: rotateY( 180deg );
+  background: linear-gradient(to top, hsl(130, 30%, 35%), hsl(130, 30%, 25%));
+  opacity: 0.9;
+  transform: rotateX(180deg);
+  display: flex;
+  flex-direction: column;
 }
 
+
+.card__face--front p {
+  font-family: 'Livvic', sans-serif;
+  color: rgba(245,245,230,.85);
+  font-weight: 700;
+}
+
+.card__face--back p {
+  font-size: 26px;
+  font-family: 'Livvic', sans-serif;
+  color: rgba(245,245,230,.85);
+  font-weight: 400;
+  line-height: 1.4;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
 .scene:hover .card{
-    transform: rotateY(-180deg);
+    transform: rotateX(-180deg);
+}
+
+.card__face--back a {
+  text-decoration: none;
+  display: inline-flex;
+  align-self: center;
+  background-color: rgba(245,245,230,.85);
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: hsl(130, 50%, 15%);
+  font-family: 'Livvic', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 2px hsl(130, 50%, 15%);
+  transition: transform 1s;
+}
+
+.card__face--back a:hover {
+  transform: scale(1.02)
+
+}
+
+.card__face--back button {
+  background: none;
+  border: none;
+  font-size: 40px;
+  color: rgba(245,245,230,.85);
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  transition: transform 2s;
+}
+
+.card__face--back button i:hover {
+  transform: scale(1.02)
 }

@@ -21,7 +21,7 @@ function renderFavoriteRecipes(UserRecipes) {
                 <div class="scene">
                 <div class="card">
                     <div class="card__face card__face--front">
-                        ${UserRecipe.recipe.title}<br>
+                        <p>${UserRecipe.recipe.title}</p>
                         <img src="https://spoonacular.com/recipeImages/${UserRecipe.recipe.image}" onerror="javascript:this.src='./images/top-view-of-food.jpg'" alt="No Image Available"><br>
                     </div>
                      <div class="card__face card__face--back">
@@ -30,7 +30,7 @@ function renderFavoriteRecipes(UserRecipes) {
                             
                             <form action="http://localhost:3000/user_recipes/${UserRecipe.id}"  method="POST">
                                 <input type="hidden" name="_method" value="delete">
-                                <input type="submit" value="Delete">
+                                <button type="submit"><i class="fas fa-bookmark"></i></button>
                             </form>
                      </div>
                 </div>
@@ -41,13 +41,14 @@ function renderFavoriteRecipes(UserRecipes) {
 
 
 
-const main = document.querySelector('main')
+const footer = document.querySelector('footer')
 
 function linkToShowPage() {
     const link = document.createElement('a')
+    link.id = "recipe-link"
     link.textContent = "View More Recipes"
     link.href = `show.html?user_id=${user_id}`
-    main.append(link)
+    footer.append(link)
 }
 
 

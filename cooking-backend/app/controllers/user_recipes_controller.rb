@@ -5,6 +5,7 @@ class UserRecipesController < ApplicationController
             user_id: params[:user_id],
             recipe_id: params[:recipe_id]
         )
+        redirect_back fallback_location: "http://localhost:3001/favorites.html?user_id=#{user_id}"
     end
 
     def destroy
