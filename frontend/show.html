@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="show.css">
-    <title>Recipe Selection</title>
-    <script src="show.js" defer></script>
-</head>
-<body>
-    <header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="show.css">
+        <title>Recipe Selection</title>
+        <script src="show.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Find New Recipes</h1>
+            <form action="http://localhost:3001/show.html" method="GET" id="search-bar">
+            </form>
+            <form action="http://localhost:3001/show.html" method="GET" id="select-time-bar">
+                <label id="filter-label">Filter Recipes:</label>
+                <select name="ready_in_minutes">
+                    <option value="">By Cook Time</option>
+                    <option value="under_30">Under 30 Minutes</option>
+                    <option value="30_60">30 Minutes to One Hour</option>
+                    <option value="over_60">Over One Hour</option>
+                </select>
+                <input type="submit" value="Search">
+            </form>
+        </header>
         <a name="top"></a>
-        <h1>Find New Recipes</h1>
-        <form action="http://localhost:3001/show.html" method="GET" id="search-bar">
-        </form>
-        <form action="http://localhost:3001/show.html" method="GET" id="select-time-bar">
-            <select name="ready_in_minutes">
-                <option value="">Select Cook Time</option>
-                <option value="under_30">Under 30 Minutes</option>
-                <option value="30_60">30 Minutes to One Hour</option>
-                <option value="over_60">Over One Hour</option>
-            </select>
-            <input type="submit" value="Search">
-        </form>
-    </header>
-    <main>
-        <ul id="recipe-list"></u>
-    </main>
-    <footer>
-        <a id="favorite-link">Favorites Page</a>
+        <main>
+            <ul id="recipe-list"></u>
+            </main>
+            <footer>
+                <a id="favorite-link">Favorites Page</a>
         <a href="#top" id="top-link">Top of Page</a>
     </footer>
 </body>

@@ -58,7 +58,7 @@ const searchBar = document.querySelector('#search-bar')
 function editSearchForm(){
     searchBar.innerHTML = `
         <label>Search Recipes:</label>
-        <input type="text" name="title" placeholder="Name of Recipe">
+        <input type="text" name="title" placeholder="By Name">
         <input type="hidden" name="user_id" value=${user_id}>
         <input type="submit" value="Search">
         `

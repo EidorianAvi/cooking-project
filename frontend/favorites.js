@@ -8,6 +8,7 @@ fetch("http://localhost:3000/user_recipes")
 
 function handleData(UserRecipes){
     renderFavoriteRecipes(UserRecipes)
+    linkToUserPage()
     linkToShowPage()
 }
 
@@ -49,6 +50,14 @@ function linkToShowPage() {
     link.textContent = "View More Recipes"
     link.href = `show.html?user_id=${user_id}`
     footer.append(link)
+}
+
+function linkToUserPage(){
+    const userLink = document.createElement('a')
+    userLink.id = "user-link"
+    userLink.textContent = "User Selection"
+    userLink.href = `user_select.html`
+    footer.append(userLink)
 }
 
 

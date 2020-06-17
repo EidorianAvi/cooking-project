@@ -53,7 +53,7 @@ table {
 
 header {
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 15vh;
   top: 0;
   display: flex;
@@ -69,9 +69,10 @@ footer {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   width: 100vw;
-  height: 10vh;
+  height: 8vh;
   background: linear-gradient(to top, hsl(130, 30%, 25%), hsl(130, 30%, 35%));
   opacity: .7;
   box-shadow: 0px -4px 10px hsl(130, 30%, 10%);
@@ -85,24 +86,36 @@ footer {
      font-family: 'KoHo', sans-serif;
 }
 
-#search-bar {
+#search-bar label {
   font-family: 'KoHo', sans-serif;
   color: rgba(245,245,230, 1);
   font-size: 18px;
   font-weight:700;
+  margin-right: 5px;
+}
+
+
+
+#filter-label {
+  font-family: 'KoHo', sans-serif;
+  color: rgba(245,245,230, 1);
+  font-size: 18px;
+  font-weight:700;
+  margin-right: 5px;
 }
 
 #search-bar, input {
   font-family: 'KoHo', sans-serif;
   font-size: 14px;
   text-align: center;
-  opacity: 1;
+  margin-right: 5px;
 }
 
 #select-time-bar  select {
   font-family: 'KoHo', sans-serif;
   height: 25px;
-  text-align-last: center; 
+  text-align-last: center;
+  margin-right: 5px; 
 }
 
 body {
@@ -120,13 +133,14 @@ body {
 
 
 h1 {
- color: rgba(245,245,230);
- font-family: 'KoHo', sans-serif;
- font-size: 34px;
- font-weight: 700;
+  color: rgba(245,245,230);
+  font-family: 'KoHo', sans-serif;
+  font-size: 34px;
+  font-weight: 700;
 }
 
 #recipe-list {
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
