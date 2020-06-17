@@ -22,7 +22,7 @@ function renderFavoriteRecipes(UserRecipes) {
                 <div class="card">
                     <div class="card__face card__face--front">
                         ${UserRecipe.recipe.title}<br>
-                        <img src="./images/food_id1.jpg"><br>
+                        <img src="https://spoonacular.com/recipeImages/${UserRecipe.recipe.image}" onerror="javascript:this.src='./images/top-view-of-food.jpg'" alt="No Image Available"><br>
                     </div>
                      <div class="card__face card__face--back">
                             <p>Time to prepare: ${UserRecipe.recipe.ready_in_minutes} minutes</p>
@@ -49,7 +49,7 @@ function linkToShowPage() {
     link.href = `show.html?user_id=${user_id}`
     main.append(link)
 }
-d
+
 
 
 

@@ -48,6 +48,11 @@ table {
 
 /* PERSONAL STYLING STARTS HERE */
 
+body {
+  background: url();
+  background-size: 100%;
+}
+
 #recipe-list {
     display: flex;
     flex-wrap: wrap;
@@ -59,8 +64,6 @@ table {
     flex-direction: column;
     width: 250px;
     padding: 1rem;
-    margin: 1rem;
-    border: 1px solid black;
     align-items: center;
     text-align: center;
     justify-content: space-between;
@@ -98,9 +101,9 @@ table {
 
 .card__face--back {
   background: blue;
-  transform: rotateY( 180deg );
+  transform: rotateX(180deg);
 }
 
 .scene:hover .card{
-    transform: rotateY(-180deg);
+    transform: rotateX(180deg);
 }

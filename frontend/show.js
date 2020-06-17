@@ -32,7 +32,7 @@ function renderRecipes(recipes){
              <div class="card">
                 <div class="card__face card__face--front">
                     ${recipe.title}<br> 
-                    <img src="./images/food_id1.jpg"><br>
+                    <img src="https://spoonacular.com/recipeImages/${recipe.image}" onerror="javascript:this.src='./images/food-icon.png'" alt="No Image Available"><br>
                 </div>
                 <div class="card__face card__face--back">
                     <p>Time to prepare: ${recipe.ready_in_minutes} minutes</p>
