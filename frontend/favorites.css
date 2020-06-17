@@ -48,10 +48,16 @@ table {
 
 /* PERSONAL STYLING STARTS HERE */
 
+body {
+  background: url('./images/carrots-food-fresh-freshness-616404.jpg');
+  background-size: 100%;
+}
+
 #favorites-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    width: 80vh;
 }
 
 #favorites-list li {

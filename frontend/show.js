@@ -31,7 +31,7 @@ function renderRecipes(recipes){
             `<div class="scene">
              <div class="card">
                 <div class="card__face card__face--front">
-                    ${recipe.title}<br> 
+                    <p>${recipe.title}</p> 
                     <img src="https://spoonacular.com/recipeImages/${recipe.image}" onerror="javascript:this.src='./images/food-icon.png'" alt="No Image Available"><br>
                 </div>
                 <div class="card__face card__face--back">
@@ -40,7 +40,7 @@ function renderRecipes(recipes){
                     <form action="http://localhost:3000/user_recipes" method="POST">
                         <input type="hidden" name="user_id" value=${user_id}>
                         <input type="hidden" name="recipe_id" value=${recipe.id}>
-                        <input type="submit" value="Add to Favorites">
+                        <button type="submit"><i class="far fa-bookmark"></i></button>
                     </form>
                 </div>
              </div>
