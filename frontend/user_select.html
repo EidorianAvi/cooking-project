@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="user_select.css">
     <title>User Selection</title>
     <script src="user_select.js" defer></script>
 </head>
 <body>
     <main id="hero">
-        <h1>Recipe Rolodex</h1>
+        <header>
+            <h1>Recipe Rolodex</h1>
+        </header>
         <div id="select-box">
-            
             <form action='http://localhost:3001/favorites.html' id="user-select-form">
                 <p>Choose User:</p><br>
                 <select name="id" id="user-selection">
@@ -29,6 +31,5 @@
             </form>
         </div>
     </main>
-    
 </body>
 </html>

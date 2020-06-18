@@ -16,16 +16,16 @@ const favoritesList = document.querySelector('#favorites-list')
 
 function renderFavoriteRecipes(UserRecipes) {
     UserRecipes.forEach(UserRecipe => {
-        if (UserRecipe.user.id == user_id){
-            let li = document.createElement('li')
-            li.innerHTML = `
+        if (UserRecipe.user.id == user_id) {  
+                let li = document.createElement('li')
+                li.innerHTML = `
                 <div class="scene">
                 <div class="card">
                     <div class="card__face card__face--front">
                         <p>${UserRecipe.recipe.title}</p>
                         <img src="https://spoonacular.com/recipeImages/${UserRecipe.recipe.image}" onerror="javascript:this.src='./images/top-view-of-food.jpg'" alt="No Image Available"><br>
                     </div>
-                     <div class="card__face card__face--back">
+                    <div class="card__face card__face--back">
                             <p>Time to prepare: ${UserRecipe.recipe.ready_in_minutes} minutes</p>
                             <a href=${UserRecipe.recipe.recipe_url} target="_blank">See Recipe</a>
                             
@@ -33,12 +33,24 @@ function renderFavoriteRecipes(UserRecipes) {
                                 <input type="hidden" name="_method" value="delete">
                                 <button type="submit"><i class="fas fa-bookmark"></i></button>
                             </form>
-                     </div>
+                    </div>
                 </div>
                 </div>`
             favoritesList.append(li)
-    }})
+            }
+        })
+        emptyFavoritesList()
+    }
+
+function emptyFavoritesList() {
+    if (!document.querySelector('.scene')) {
+        let h2 = document.createElement('h2')
+        h2.id = 'empty-list'
+        h2.textContent = "You don't currently have any favorites. Please click 'View More Recipes' below."
+        document.body.appendChild(h2)
+    }
 }
+
 
 
 
@@ -61,36 +73,4 @@ function linkToUserPage(){
 }
 
 
-
-
-// const recipeSelectBar = document.querySelector('#recipe-selection')
-
-// function recipeDeleteBar(UserRecipes){
-//     console.log(UserRecipes)
-//     UserRecipes.forEach(UserRecipe =>{
-//         let option = document.createElement('option');
-//         option.name = 'id';
-//         option.value = UserRecipe.id;
-//         option.textContent = UserRecipe.recipe.title;
-//         recipeSelectBar.append(option)
-//     })
-// }
-
-
-// fetch("http://localhost:3000/recipes")
-//     .then(response => response.json())
-//     .then(addFavoriteCreator)
-
-// function addFavoriteCreator(recipes){
-//     recipeSelection(recipes)
-//     userIdValue()
-// }
-
-
-// const assignUserId = document.querySelector('#assign-user-id')
-
-// function userIdValue(){
-//     assignUserId.value = user_id
-//     assignUserId.name = "user_id"
-// }
 
